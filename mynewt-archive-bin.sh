@@ -15,7 +15,7 @@ usage: $scriptname <dst-prefix> <bin-files>
   creates the following files:
       * ~/rels/apache-newt-bin-osx-0.8.0-b2.tgz
       * ~/rels/apache-newt-bin-osx-0.8.0-b2.tgz.asc
-      * ~/rels/apache-newt-bin-osx-0.8.0-b2.tgz.sha
+      * ~/rels/apache-newt-bin-osx-0.8.0-b2.tgz.sha512
 EOS
 }
 
@@ -70,7 +70,7 @@ gpg2 --armor --output "$tgzpath".asc --detach-sig "$tgzpath"
 # Create sha; cd to target directory first for friendlier output.
 (
     cd "$dstdir" &&
-    gpg2 --print-md SHA512 "$tgzfile" > "$tgzfile".sha
+    gpg2 --print-md SHA512 "$tgzfile" > "$tgzfile".sha512
 )
 
 # Verify signature.

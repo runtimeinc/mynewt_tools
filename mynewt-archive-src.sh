@@ -14,7 +14,7 @@ usage: $scriptname <dst-prefix> <tag-name>
   creates the following files:
       * ~/rels/apache-newt-0.8.0-b2.tgz
       * ~/rels/apache-newt-0.8.0-b2.tgz.asc
-      * ~/rels/apache-newt-0.8.0-b2.tgz.sha
+      * ~/rels/apache-newt-0.8.0-b2.tgz.sha512
 EOS
 }
 
@@ -52,7 +52,7 @@ gpg2 --armor --output "$dstfile".asc --detach-sig "$dstfile"
     dir="$(dirname "$dstfile")"
     filename="$(basename "$dstfile")"
     cd "$dir" &&
-    gpg2 --print-md SHA512 "$filename" > "$filename".sha
+    gpg2 --print-md SHA512 "$filename" > "$filename".sha512
 )
 
 # Verify signature.
